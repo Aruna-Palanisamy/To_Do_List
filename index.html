@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>TO DO LIST</h1>
+    </header>
+    <main>
+        <form>
+            <input type="text" id="mytext" placeholder="enter your text here">
+            <span id="addBtn" onclick="mylist()">Add</span>
+        </form>
+        <ul id="myUl">
+            <li>Reading</li>
+            <li>Writing</li>
+        </ul>
+    </main>
+    <script>
+        var list = document.getElementsByTagName('li');
+        for(var i=0;i<list.length;i++){
+            var span=document.createElement("span");
+            span.className="close";
+            var close=document.createTextNode("X");
+            span.appendChild(close);
+            list[i].appendChild(span);
+        }
+        var lt = document.getElementsByTagName('li');
+        for(var i=0;i<lt.length;i++){
+            var span1=document.createElement("span1");
+            span1.className="mark";
+            var mark=document.createTextNode("✔");
+            span1.appendChild(mark);
+            list[i].appendChild(span1);
+        }
+
+        var close= document.getElementsByClassName("close");
+        for(i=0;i<close.length;i++){
+            close[i].onclick=function(){
+                var d=this.parentElement;
+                d.style.display= "none";
+            }
+        }
+        var mark= document.getElementsByClassName("mark");
+        for(i=0;i<mark.length;i++){
+            mark[i].onclick=function(){
+                var m=this.parentElement;
+                m.style.background="white";
+            }
+        }
+    
+
+        function mylist(){
+            var li= document.createElement("li");
+            var mytext= document.getElementById("mytext").value;
+            var t= document.createTextNode( mytext);
+            li.appendChild(t)
+            if(mytext==""){
+                alert("Input Field is Empty");
+            }
+            else{
+                document.getElementById("myUl").appendChild(li);
+            }
+            var list = document.getElementsByTagName('li');
+            for(var i=0;i<list.length;i++){
+                var span=document.createElement("span");
+                span.className="close";
+                var close=document.createTextNode("X");
+                span.appendChild(close);
+                list[i].appendChild(span);
+            }
+            var lt = document.getElementsByTagName('li');
+            for(var i=0;i<lt.length;i++){
+                var span1=document.createElement("span1");
+                span1.className="mark";
+                var mark=document.createTextNode("✔");
+                span1.appendChild(mark);
+                list[i].appendChild(span1);
+            }
+            var close= document.getElementsByClassName("close");
+            for(i=0;i<close.length;i++){
+                close[i].onclick=function(){
+                    var d=this.parentElement;
+                    d.style.display= "none";
+                }
+            }
+            var mark= document.getElementsByClassName("mark");
+            for(i=0;i<mark.length;i++){
+                mark[i].onclick=function(){
+                    var m=this.parentElement;
+                    m.style.background="white";
+            }
+        }
+            
+            
+        }
+    </script>
+    <div class="overlay"></div>
+</body>
+</html>
